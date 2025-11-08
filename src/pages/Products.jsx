@@ -33,7 +33,7 @@ const Products = () => {
       data?.length>0? ( <div className='flex gap-8 '>
        <FilterSection search={search} setSearch={setSearch} priceRange={priceRange} setPriceRange={setPriceRange}
         category={category} setCategory={setCategory} handleCategoryChange ={handleCategoryChange}/>
-       <div className='grid grid-cols-3 gap-7 mt-10'>
+       <div className='grid md:grid-cols-3 grid-cols-2 md:gap-7 gap-5 mt-10'>
         {
           filterdData?.map((product,idx)=>{
             return <ProductCard key={idx} product={product}/>

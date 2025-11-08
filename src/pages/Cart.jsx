@@ -4,13 +4,11 @@ import { FaRegTrashAlt } from 'react-icons/fa'
 
 const Cart = () => {
   const {cartItem,updateQuantity,deleteItem} =useCart()
-  // console.log(cartItem);
-  // const totalPrice = cartItem.reduce((total,item)=>total + item.price,0)
   const totalPrice = cartItem.reduce((total, item) => total + item.price * item.quantity, 0);
 
   
   return (
-    <div className='mt-10 max-w-6xl mx-auto mb-5 '>
+    <div className='mt-10 max-w-6xl mx-auto mb-5 md:px-0'>
     {
       cartItem.length> 0 ?<div>
         <h1 className='font-bold text-2xl'>My Cart({cartItem.length})</h1>
@@ -21,7 +19,7 @@ const Cart = () => {
             <div className='flex items-center gap-4'>
               <img src={item.image} alt={item.title} className='w-20 h-20 rounded-md'/>
               <div>
-                <h1 className='w-[300px] line-clamp-2'>{item.title}</h1>
+                <h1 className='md:w-[300px] line-clamp-2'>{item.title}</h1>
                 <p className='text-red-500 font-semibold text-lg '>${item.price}</p>
               </div>
             </div>
@@ -36,11 +34,7 @@ const Cart = () => {
            </div>
           })}
           </div>
-          {/* <div className='justify-center items-center'>
-            <h1 className='text-gray-800 font-bold text-xl'></h1>
-            <p className=''>${totalPrice}</p>
-          </div> */}
-          <div className='flex justify-end mt-8'>
+           <div className='flex justify-end mt-8'>
             <div className='text-xl font-medium'>
               <span className='text-red-600'>Total: </span>
               <span className='text-gray-600 font-bold'>${totalPrice.toFixed(2)}</span>
